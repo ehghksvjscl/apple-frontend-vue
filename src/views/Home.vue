@@ -38,7 +38,7 @@ export default {
     plus_complaint_cnt
   }
 }
-</script>
+</script> 
 
 <style>
 .menu {
