@@ -54,9 +54,9 @@ function nameSort() {
 }
 
 // components
-import ProductDiscount from '@/components/common/ProductDiscount.vue';
-import ProductModal from '@/components/common/ProductModal.vue';
-import productCard from '@/components/common/ProductCard.vue';
+import ProductDiscount from '@/components/product/ProductDiscount.vue';
+import ProductModal from '@/components/product/ProductModal.vue';
+import productCard from '@/components/product/ProductCard.vue';
 
 // data
 import sample_products from '@/assets/data/sample-products'
