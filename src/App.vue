@@ -1,12 +1,24 @@
 <template>
   <div id="app">
-    <router-view />
+    <Nav/>
+    <router-view :posts="posts"/>
   </div>
 </template>
 
 <script>
+import Nav from '@/components/blog/Nav.vue'
+import posts from '@/assets/data/sample-posts'
+
 export default {
   name: 'App',
+  components: {
+    Nav,
+  },
+  data() {
+    return {
+      posts: posts
+    }
+  }
 }
 </script>
 
