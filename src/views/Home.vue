@@ -1,7 +1,8 @@
 <template>
     
     <div>
-      <router-link to="/blog/">Blog</router-link>  
+      <router-link to="/blog/">Blog</router-link> 
+      <p>{{ $t('greeting') }}</p>
     </div>    
 </template>
   
