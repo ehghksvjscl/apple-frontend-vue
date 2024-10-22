@@ -39,6 +39,14 @@
   - 상태 관리를 위한 Vuex 스토어 파일이 위치합니다. 상태 관리는 Vuex를 통해 이루어지며, 모듈별로 나누어 관리할 수 있습니다.
   - 예시: `src/store/index.js`, `src/store/modules/auth.js`, `src/store/modules/user.js`
 
+- **`locales/`**
+  - 다중 언어 세팅을 위한 폴더입니다.
+  - 예시: `src/locales/kr.json`, `src/locales/en.json`, 
+
+- **`plugins/`**
+  - 플러그인 세팅 파일이 들어 있는 폴더입니다.
+  - 예시: `src/plugins/vuefity.js`
+
 - **`App.vue`**
   - 전체 애플리케이션의 루트 컴포넌트입니다. 일반적으로 `router-view`를 사용하여 페이지를 교체하는 역할을 합니다.
 
@@ -58,6 +66,8 @@ project/
 │   ├── views/
 │   ├── router/
 │   ├── store/
+│   ├── plugins/
+│   ├── locales/
 │   ├── App.vue
 │   └── main.js
 ├── package.json

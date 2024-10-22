@@ -30,9 +30,9 @@ mkdir -p src/components/common
 mkdir -p src/components/layout
 mkdir -p src/views
 mkdir -p src/router
+mkdir -p src/locales
 mkdir -p src/store
-mkdir -p src/services
-mkdir -p src/modules
+mkdir -p src/plugins
 mkdir -p src/composables
 mkdir -p src/utils
 
