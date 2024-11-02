@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    name: 'Instagram',
-    component: import('@/views/Instagram.vue')
+    name: 'Calculator',
+    component: import('@/views/Calculator.vue')
   },
   {
     path: "/:anything(.*)",

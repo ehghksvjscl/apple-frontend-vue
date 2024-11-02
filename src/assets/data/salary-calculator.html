@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>근로계산기 - 세후 연봉 계산기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .highlight-green{
+          display: inline-block;
+          background: #D9FCDB;
+          height: 15px; 
+          line-height : 0px;
+        }
+        .highlight-red{
+          display: inline-block;
+          background: #fcdbd9;
+          height: 15px; 
+          line-height : 0px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <!-- GNB Section -->
+    <div class="container">
+      <ul class="nav nav-underline">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="salary-calculator.html">세후 연봉 계산기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-secondary" href="salary-table.html">세후 실수령액 표</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <!-- Section 1 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card shadow-sm mb-3">
+        <div class="card-header d-flex">
+          <span class="me-auto">입력하기</span>
+          <span class="ms-1"><a href="">🔄</a></span>
+        </div>
+
+        <div class="card-body">
+
+        <div class="mb-3">
+          <span class="d-flex">
+          <label for="basic-url" class="form-label dropdown-toggle me-auto" data-bs-toggle="dropdown" aria-expanded="false">연봉 금액</label>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">연봉</a></li>
+              <li><a class="dropdown-item" href="#">월급</a></li>
+            </ul>
+
+          <input class="form-check-input text-bg-dark border-black" type="checkbox" value="" id="flexCheckChecked" checked>
+          <label class="form-check-label ms-1 text-secondary" for="flexCheckChecked">퇴직금 별도</label>
+          </span>
+
+          <div class="input-group">
+            <input type="text" class="form-control text-end" aria-label="Amount (to the nearest dollar)" value="0" placeholder="0">
+            <span class="input-group-text">원</span>
+          </div>
+
+          <div class="form-text text-end d-none d-sm-block" id="basic-addon4">1년 동안 받는 급여의 총합을 입력합니다.</div>
+          
+          <div class="mt-1 gap-2 d-flex justify-content-end">
+          <button class="btn btn-light btn-sm" type="button">+백만원</button>
+          <button class="btn btn-light btn-sm" type="button">+천만원</button>
+          </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="basic-url" class="form-label">비과세액</label>
+          <div class="input-group">
+            <input type="text" class="form-control text-end" aria-label="Amount (to the nearest dollar)" value="200,000" placeholder="0">
+            <span class="input-group-text">원</span>
+          </div>
+          <div class="form-text text-end d-none d-sm-block" id="basic-addon4">급여총액 중 과세되지 않는 금액을 입력합니다.</div>
+          <div class="mt-1 gap-2 d-flex justify-content-end">
+          <button class="btn btn-light btn-sm" type="button">+오만원</button>
+          <button class="btn btn-light btn-sm" type="button">+십만원</button>
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="basic-url" class="form-label">부양가족수</label>
+          <div class="input-group">
+              <button class="btn btn-outline-secondary border-secondary-subtle" type="button">+</button>
+              <button class="btn btn-outline-secondary border-secondary-subtle" type="button">-</button>
+
+            <input type="text" class="form-control text-end" aria-label="Amount (to the nearest dollar)" value="1" placeholder="1">
+            <span class="input-group-text">명</span>
+          </div>
+          <div class="form-text text-end d-none d-sm-block" id="basic-addon4">본인을 포함한 부양가족의 수를 입력합니다.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="basic-url" class="form-label">20세 이하 자녀수</label>
+          <div class="input-group">
+              <button class="btn btn-outline-secondary border-secondary-subtle" type="button">+</button>
+              <button class="btn btn-outline-secondary border-secondary-subtle" type="button">-</button>
+
+            <input type="text" class="form-control text-end" aria-label="Amount (to the nearest dollar)" value="0" placeholder="0">
+            <span class="input-group-text">명</span>
+          </div>
+          <div class="form-text text-end d-none d-sm-block" id="basic-addon4">자녀의 수를 입력합니다.</div>
+        </div>
+
+        </div>
+      </div>
+        </div>
+
+        <div class="col-sm-4">
+           <div class="card shadow-sm mb-3">
+              <div class="card-body">
+                <p class="lead">예상 월 실수령액은 <span class="fw-bold highlight-green">13,213,232</span>원이에요.</p>
+                <table class="table caption-top table-hover">
+                  <caption>4대 보험</caption>
+                  <thead>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr>
+                      <th scope="row">국민연금</th>
+                      <td class="text-end">1,000원</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">건강보험</th>
+                      <td class="text-end">1,000원</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">장기요양</th>
+                      <td class="text-end">1,000원</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">고용보험</th>
+                      <td class="text-end">1,000원</td>
+                    </tr>
+                    <tr class="table-light">
+                      <th scope="row">소계</th>
+                      <td class="text-end">4,000원</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="table caption-top table-hover">
+                  <caption>세금</caption>
+                  <thead>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr>
+                      <th scope="row">근로소득세</th>
+                      <td class="text-end">1,000원</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">지방소득세</th>
+                      <td class="text-end">1,000원</td>
+                    </tr>
+                    <tr class="table-light">
+                      <th scope="row">소계</th>
+                      <td class="text-end">2,000원</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="form-text">본 모의계산 결과는 오차가 있을 수 있으며, 법적효력이 없습니다.</div>
+              </div>
+          </div>
+          
+
+        </div>
+
+        <div class="col-sm-4">
+          <div class="card shadow-sm mb-3">
+            <div class="card-body">
+              <div class="text-secondary mb-3">
+              내가 
+              <label for="age" class="form-label dropdown-toggle me-auto" data-bs-toggle="dropdowwn" aria-expanded="false">30대</label> 
+              <label for="gender" class="form-label dropdown-toggle me-auto" data-bs-toggle="dropdown" aria-expanded="false">남성</label> 이고, 
+              <label for="industry" class="form-label dropdown-toggle me-auto" data-bs-toggle="dropdown" aria-expanded="false">제조업</label> 에서 일한다면,
+              </div>
+              <small class="text-secondary text-opacity-75">30대 평균연봉: 4,479만원</small>
+              <p class="lead">내 연봉은 30대 평균보다 <span class="fw-bold highlight-green">321만원 더 많아요.</span></p>
+              <small class="text-secondary text-opacity-75">남성 평균연봉: 5,179만원</small>
+              <p class="lead">내 연봉은 남성 평균보다 <span class="fw-bold highlight-green">15만원 더 많아요.</span></p>
+              <small class="text-secondary text-opacity-75">제조업 근로자 평균연봉: 4,279만원</small>
+              <p class="lead">내 연봉은 산업 평균보다 <span class="fw-bold highlight-red">217만원 더 적어요.</span></p>
+              <div class="form-text">국가통계포털 일자리행정통계 기준으로 산출됩니다.</div>
+            </div>
+          </div>  
+          </div>
+
+      </div>
+    </div>
+    <div class="vr"></div>
+    <!-- Section 2 -->
+    <div class="container">
+      <div class="card shadow-sm mb-3">
+            <div class="card-body">
+              광고 - Google AdSense
+            </div>
+          </div>
+    </div>
+    <div class="vr"></div>
+  </body>
+</html>
