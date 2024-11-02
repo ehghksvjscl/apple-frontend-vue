@@ -4,16 +4,16 @@
         <li>Cancel</li>
         </ul>
         <ul class="header-button-right">
-        <li>Next</li>
+        <li v-if="step==1" @click="step++">Next</li>
+        <li v-if="step==2" @click="add_post">Push</li>
         </ul>
         <img src="@/assets/logo.png" class="logo" />
     </div>
-
-    <Container />
+    <Container :step="step" :add_image_url="add_image_url" :posts="posts" @write_post="write_content=$event"/>
 
     <div class="footer">
         <ul class="footer-button-plus">
-        <input type="file" id="file" class="inputfile" />
+        <input @change="upload_img" type="file" id="file" accept="image/*" class="inputfile" />
         <label for="file" class="input-plus">+</label>
         </ul>
     </div>
@@ -21,12 +21,57 @@
   
 <script>
 import Container from '@/components/instagram/Container.vue';
+import { mapState, mapMutations } from 'vuex'
+
+function add_post() {
+    let id = this.posts.length
+    let new_post_data = {
+      id: id,
+      name: "New User",
+      userImage: this.add_image_url,
+      postImage: this.add_image_url,
+      likes: 0,
+      date: "Apr 4",
+      liked: false,
+      content: this.write_content,
+      filter: this.change_filter
+    }
+    this.addPost(new_post_data)
+    this.step = 0
+}
+
+function upload_img(e) {
+    let files = e.target.files
+    this.add_image_url = URL.createObjectURL(files[0])
+    this.step = 1
+}
 
 export default {
-name: 'InstagramView',
-components: {
-    Container,
-},
+    name: 'InstagramView',
+    data() {
+        return {
+            step: 3,
+            add_image_url:'',
+            write_content: '',
+            change_filter: '',
+        }
+    },
+    components: {
+        Container,
+    },
+    mounted() {
+        this.emitter.on('fire', (filter) => {
+            this.change_filter = filter
+        })
+    },
+    computed: {
+        ...mapState(['posts']),
+    },
+    methods: {
+        add_post,
+        upload_img,
+        ...mapMutations(['addPost']),
+  },
 }
 </script> 
 

@@ -4,10 +4,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'bootstrap'
+import mitt from 'mitt'
 
 // langeage files
 import en from './locales/en.json'
 import kr from './locales/kr.json'
+import './registerServiceWorker'
 
 const messages = {
     en: en,
@@ -18,8 +20,10 @@ const i18n = createI18n({
     locale: 'kr',
     messages
 })
-    
+
+const emitter = mitt()
 const app = createApp(App)
+app.config.globalProperties.emitter = emitter
 
 app.use(router)
 app.use(i18n)
