@@ -1,6 +1,6 @@
 <template>
-    <Header />
-    <Title />    
+  <Header />
+  <Title />
 </template>
   
   <script>

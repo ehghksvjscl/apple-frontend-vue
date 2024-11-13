@@ -1,10 +1,18 @@
-FROM node:lts-alpine
-RUN npm install -g http-server
+# Dockerfile
+FROM node:lts AS build
+
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm install --production
+RUN npm install
+
 COPY . .
+
 RUN npm run build
 
-EXPOSE 8880
-CMD ["http-server", "dist", "-p 8888"]
+FROM nginx:alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# 컨테이너 실행 시 실행할 명령 정의
+CMD ["nginx", "-g", "daemon off;"]

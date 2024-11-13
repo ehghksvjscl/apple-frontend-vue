@@ -1,21 +1,13 @@
 <template>
   <div id="app">
-    <router-view :posts="posts"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import posts from '@/assets/data/sample-posts'
 
 export default {
   name: 'App',
-  components: {
-  },
-  data() {
-    return {
-      posts: posts
-    }
-  }
 }
 </script>
 
