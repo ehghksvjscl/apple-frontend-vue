@@ -10,6 +10,9 @@ import mitt from 'mitt'
 import en from './locales/en.json'
 import kr from './locales/kr.json'
 import './registerServiceWorker'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 const messages = {
     en: en,
