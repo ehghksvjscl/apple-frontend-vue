@@ -161,8 +161,5 @@
 </script> 
   
   <style>
-    .card {
-        border: 2px solid red;
-    }
   </style>
   
